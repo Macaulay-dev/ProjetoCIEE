@@ -7,12 +7,12 @@ Aplicação para cadastrar candidatos manualmente ou importar um currículo em P
 - React 18.3.1 e Vite 5.4.15 (frontend)
 - Node.js 20+ e Express 4.21.2 (backend)
 - SQL Server 2019+ (banco de dados), pacote `mssql` 11.0.1
-- `multer` 1.4.5-lts.1 e `pdf-parse` 1.1.1 (envio e extração)
+- `multer` 2.0.2 e `pdf-parse` 2.4.5 (envio e extração)
 - Testes com `node:test` (integrado ao Node.js)
 
 ## Pré-requisitos
 
-Node.js 20 ou superior, npm e SQL Server em execução. É possível usar SQL Server local, em container ou remoto, com usuário que tenha acesso à base. Porta padrão: 1433. O script SQL usa o comando `GO`, aceito pelo SSMS e `sqlcmd`.
+Node.js 20.16 ou superior, npm e SQL Server em execução. É possível usar SQL Server local, em container ou remoto, com usuário que tenha acesso à base. Porta padrão: 1433. O script SQL usa o comando `GO`, aceito pelo SSMS e `sqlcmd`.
 
 ## Configuração do banco
 

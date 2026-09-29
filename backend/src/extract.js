@@ -1,4 +1,4 @@
-import pdfParse from 'pdf-parse';
+import { PDFParse } from 'pdf-parse';
 export function identifyFields(text) {
   const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
   const email = text.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0] ?? '';
@@ -8,7 +8,10 @@ export function identifyFields(text) {
   return { nomeCompleto: candidate ?? '', email, telefone: phone };
 }
 export async function extractPdf(buffer) {
-  const parsed = await pdfParse(buffer);
-  if (!parsed.text?.trim()) throw new Error('NO_TEXT');
-  return identifyFields(parsed.text);
+  const parser = new PDFParse({ data: buffer });
+  try {
+    const parsed = await parser.getText();
+    if (!parsed.text?.trim()) throw new Error('NO_TEXT');
+    return identifyFields(parsed.text);
+  } finally { await parser.destroy(); }
 }

@@ -18,7 +18,7 @@ A extração é tratada como sugestão, não como cadastro automático. A valida
 
 ## Verificação
 
-Os testes automatizados cobrem obrigatoriedade, formato do e-mail, limites e extração de dados de texto. A validação completa com SQL Server depende de executar o banco no ambiente do candidato. Preencher após executar:
+Os testes automatizados passaram neste ambiente e cobrem obrigatoriedade, formato do e-mail, limites e extração de dados de texto. A compilação de produção do frontend também passou. A leitura real do PDF fictício extraiu nome, e-mail e telefone. A validação completa com SQL Server depende de executar o banco no ambiente do candidato. Preencher após executar:
 
 - [ ] `npm test` no backend: resultado e data: ______
 - [ ] `npm run build` no frontend: resultado e data: ______
