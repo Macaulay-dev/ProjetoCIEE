@@ -10,7 +10,7 @@ Escolhi React e Node.js por serem tecnologias permitidas e por reduzirem o núme
 
 ## Uso de IA
 
-Usei o ChatGPT (Codex, modelo GPT-6) para ajudar a estruturar o projeto, gerar um primeiro rascunho da API, da interface, dos testes e desta documentação. Exemplos de pedidos feitos nesta conversa: “transformar o enunciado do desafio em um projeto executável com React, Node.js e SQL Server”; “incluir os dois fluxos de cadastro usando o mesmo formulário”; “documentar o uso de IA de forma fiel”. Revisei o enunciado e organizei a solução em torno dos critérios da vaga. **O candidato deve revisar este relato e ajustar qualquer afirmação que não corresponda à sua própria participação antes de enviar.**
+Usei o ChatGPT (Codex, modelo GPT-6) para ajudar a estruturar o projeto, gerar um primeiro rascunho da API, da interface, dos testes e desta documentação. O contexto fornecido à IA incluiu o enunciado completo da vaga. As orientações de desenvolvimento dadas à IA foram criar uma solução executável em React, Node.js e SQL Server, usar o mesmo formulário nos dois fluxos e relatar o uso de IA com fidelidade. Estes são exemplos resumidos das orientações, não transcrições literais de comandos do candidato. Revisei o enunciado e organizei a solução em torno dos critérios da vaga. **O candidato deve revisar este relato e ajustar qualquer afirmação que não corresponda à sua própria participação antes de enviar.**
 
 ## Correções e adaptações
 
@@ -20,10 +20,10 @@ A extração é tratada como sugestão, não como cadastro automático. A valida
 
 Os testes automatizados passaram neste ambiente e cobrem obrigatoriedade, formato do e-mail, limites e extração de dados de texto. A compilação de produção do frontend também passou. A leitura real do PDF fictício extraiu nome, e-mail e telefone. A validação completa com SQL Server depende de executar o banco no ambiente do candidato. Preencher após executar:
 
-- [ ] `npm test` no backend: resultado e data: ______
-- [ ] `npm run build` no frontend: resultado e data: ______
+- [x] `npm test` no backend: 3 testes passaram em 29/09/2026; repita no seu ambiente antes de enviar.
+- [x] `npm run build` no frontend: compilação passou em 29/09/2026; repita no seu ambiente antes de enviar.
 - [ ] Cadastro manual, listagem e detalhes com SQL Server: ______
-- [ ] Importação do PDF fictício, revisão e salvamento: ______
+- [x] Endpoint importou o PDF fictício e extraiu os três campos em 29/09/2026. Revisão pela interface e salvamento com SQL Server: ______
 - [ ] PDF inválido/grande e continuação manual: ______
 
 ## Tempo, dificuldades e melhorias
