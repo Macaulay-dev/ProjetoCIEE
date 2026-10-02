@@ -2,30 +2,75 @@
 
 ## Organização e execução
 
-Dividi o desafio em API e banco, interface, documentação e verificação. Implementei primeiro um cadastro independente do PDF. Depois adicionei a leitura como preenchimento opcional do mesmo formulário e mantive uma única rota para salvar. Separei commits para mostrar as etapas. Antes da entrega, é necessário executar o roteiro de ponta a ponta em uma instância SQL Server e registrar o resultado real abaixo.
+Organizei o trabalho em configuração do ambiente, execução da aplicação, verificação dos requisitos e documentação. Usei uma base de código gerada com auxílio de IA, organizada em frontend React, backend Node.js e script de criação do banco SQL Server. A base foi entregue com commits separados para API, interface, documentação e ajustes.
+
+Minha participação incluiu instalar e configurar o SQL Server, executar o script do banco, ajustar as variáveis de ambiente, iniciar frontend e backend no VS Code, testar os fluxos e acompanhar a solução dos erros com orientação da IA. Não desenvolvi toda a base de código manualmente; usei a IA também para gerar código e esclarecer a execução.
 
 ## Decisões técnicas
 
-Escolhi React e Node.js por serem tecnologias permitidas e por reduzirem o número de linguagens necessárias neste projeto. Usei uma tabela simples no SQL Server, consultas parametrizadas para inserir e buscar por ID, e um script SQL repetível para criar a estrutura. O arquivo é lido em memória apenas durante a requisição, limitado a 5 MB, e não é armazenado. O backend extrai texto e tenta identificar os três campos; o usuário tem a decisão final ao revisar o formulário. Dados ausentes não bloqueiam o cadastro manual. Validações no frontend dão retorno rápido, e a API aplica as regras novamente.
+Usei React no frontend para organizar a interface e controlar os dados do formulário. No backend, usei Node.js com Express para receber as requisições, validar os dados e acessar o SQL Server. O banco tem uma tabela de candidatos, criada por um script que pode ser executado novamente sem recriar a estrutura existente. As consultas de inserção e busca por ID usam parâmetros para tratar os valores recebidos com segurança.
+Mantive o mesmo formulário para o cadastro manual e a importação de currículo, evitando duplicar a lógica de salvamento. O PDF é opcional e serve para ajudar no preenchimento: o backend lê o texto e tenta identificar nome, e-mail e telefone. Antes de salvar, o usuário pode corrigir as informações encontradas e completar os campos que ficaram vazios.
 
-## Uso de IA
+Limitei o PDF a 5 MB e mantive o processamento em memória, sem guardar o documento. Coloquei validações no frontend para mostrar os erros rapidamente e no backend para conferir os dados antes de salvar. A validação do e-mail verifica apenas o formato, sem confirmar se o endereço existe.
 
-Usei o ChatGPT (Codex, modelo GPT-6) para ajudar a estruturar o projeto, gerar um primeiro rascunho da API, da interface, dos testes e desta documentação. O contexto fornecido à IA incluiu o enunciado completo da vaga. As orientações de desenvolvimento dadas à IA foram criar uma solução executável em React, Node.js e SQL Server, usar o mesmo formulário nos dois fluxos e relatar o uso de IA com fidelidade. Estes são exemplos resumidos das orientações, não transcrições literais de comandos do candidato. Revisei o enunciado e organizei a solução em torno dos critérios da vaga. **O candidato deve revisar este relato e ajustar qualquer afirmação que não corresponda à sua própria participação antes de enviar.**
+## Dificuldades
+
+Durante a execução, encontrei dificuldades com o frontend abrindo em branco, a conexão com a API e o login no SQL Server. Analisei as mensagens do terminal para identificar o que precisava ajustar.
+Corrigi a forma de iniciar a aplicação, executando os comandos nas pastas do frontend e do backend. Também configurei o TCP/IP do SQL Server e ajustei as credenciais e a conexão no arquivo .env.
+Depois dos ajustes, executei os testes automatizados e conferi pela interface o cadastro manual, a importação do PDF, a listagem e os detalhes dos candidatos.
 
 ## Correções e adaptações
 
-A extração é tratada como sugestão, não como cadastro automático. A validação ocorre novamente na API. A falha de leitura não impede digitar e salvar. As consultas usam parâmetros. O PDF de exemplo traz dados fictícios. Não usei OCR porque aumentaria a instalação e a complexidade para um desafio curto.
+Durante a execução:
+
+- A abertura direta do index.html, substituída pela execução do frontend com Vite.
+- A porta 3001 ocupada por uma execução anterior da API.
+- A configuração de TCP/IP e da porta 1433 do SQL Server.
+- A falha de autenticação do usuário sa, verificando o modo de autenticação, redefinindo a senha e ajustando o backend/.env.
+- A localização do sqlcmd pelo caminho completo, pois o terminal não o encontrava pelo PATH.
+
 
 ## Verificação
 
-Os testes automatizados passaram neste ambiente e cobrem obrigatoriedade, formato do e-mail, limites e extração de dados de texto. A compilação de produção do frontend também passou. A leitura real do PDF fictício extraiu nome, e-mail e telefone. A validação completa com SQL Server depende de executar o banco no ambiente do candidato. Preencher após executar:
+Em 02/010/2026, executei no meu ambiente Windows:
 
-- [x] `npm test` no backend: 3 testes passaram em 29/09/2026; repita no seu ambiente antes de enviar.
-- [x] `npm run build` no frontend: compilação passou em 29/09/2026; repita no seu ambiente antes de enviar.
-- [ ] Cadastro manual, listagem e detalhes com SQL Server: ______
-- [x] Endpoint importou o PDF fictício e extraiu os três campos em 29/09/2026. Revisão pela interface e salvamento com SQL Server: ______
-- [ ] PDF inválido/grande e continuação manual: ______
+- npm test no backend: 3 testes passaram, sem falhas. Cobrem campos obrigatórios, formato do e-mail, campos opcionais, limites e identificação de dados no texto.
+- npm run build no frontend: compilação de produção concluída com Vite 5.4.15.
+- Consulta da API ao SQL Server: a listagem inicialmente retornou uma lista vazia, confirmando o acesso ao banco.
 
-## Tempo, dificuldades e melhorias
+Realizei e confirmei os testes manuais de cadastro sem PDF, listagem, detalhes e permanência dos dados após atualizar a página. Um e-mail com formato inválido foi rejeitado.
 
-Tempo aproximado dedicado pelo candidato: **preencher com o tempo real antes da entrega**. Dificuldades observadas: PDFs têm formatos diferentes e podem conter somente imagens; reconhecer nome por uma linha de texto é incerto. Com mais tempo, eu acrescentaria testes de integração com SQL Server, paginação, autenticação e autorização, política de retenção de dados e OCR para documentos digitalizados.
+Com um currículo em PDF, nome, e-mail e telefone foram preenchidos automaticamente. Com um PDF sem os dados esperados, consegui completar o formulário manualmente e salvar. Também confirmei os testes de rejeição de arquivo que não fosse PDF e de PDF acima do limite de 5 MB, com mensagens de erro.
+
+Os testes automatizados são testes das funções de validação e identificação de dados. A integração completa com SQL Server foi verificada manualmente; não há uma suíte automatizada de integração ou de navegador.
+
+## Tempo e dificuldades
+
+Dediquei aproximadamente 6 horas ao desafio até esta revisão, incluindo instalação, configuração, execução e testes. A preparação final da documentação e a publicação podem aumentar esse tempo.
+
+As principais dificuldades foram configurar a conexão com SQL Server, distinguir comandos de terminal de configurações do arquivo .env.
+
+## Limitações e melhorias
+
+A extração depende de texto disponível no PDF. Documentos digitalizados como imagem não são reconhecidos sem OCR. O nome é identificado por heurísticas e pode ser confundido com um título; diferentes layouts podem gerar sugestões incompletas ou incorretas. Por isso, a revisão manual é necessária.
+
+Com mais tempo, acrescentaria testes automatizados de integração com SQL Server e da interface, paginação, autenticação e autorização, um usuário de banco específico para a aplicação com permissões restritas, política de retenção de dados e OCR. Também aprofundaria minha compreensão do código para explicar e evoluir cada parte da solução.
+
+
+## Uso de inteligência artificial
+
+Utilizei o ChatGPT com Codex, durante a estruturação e revisão do projeto.
+
+A IA ajudou nas seguintes etapas:
+
+- criação da estrutura inicial do frontend, backend e banco;
+- implementação da leitura e validação do PDF;
+- elaboração inicial dos testes;
+- investigação de erros de conexão com SQL Server;
+- revisão da documentação.
+
+Exemplos resumidos de pedidos:
+
+- "Crie uma API Node.js com Express e SQL Server para cadastrar e listar candidatos."
+- "Implemente o envio de um PDF opcional de até 5 MB e extraia nome, e-mail e telefone."
+- "Revise o projeto conforme os requisitos do desafio e identifique divergências."

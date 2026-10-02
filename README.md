@@ -5,7 +5,7 @@ Aplicação para cadastrar candidatos manualmente ou importar um currículo em P
 ## Tecnologias
 
 - React 18.3.1 e Vite 5.4.15 (frontend)
-- Node.js 20+ e Express 4.21.2 (backend)
+- Node.js 20.16+ e Express 4.21.2 (backend)
 - SQL Server 2019+ (banco de dados), pacote `mssql` 11.0.1
 - `multer` 2.0.2 e `pdf-parse` 2.4.5 (envio e extração)
 - Testes com `node:test` (integrado ao Node.js)
