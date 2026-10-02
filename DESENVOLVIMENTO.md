@@ -17,7 +17,9 @@ Limitei o PDF a 5 MB e mantive o processamento em memória, sem guardar o docume
 
 Durante a execução, encontrei dificuldades com o frontend abrindo em branco, a conexão com a API e o login no SQL Server. Analisei as mensagens do terminal para identificar o que precisava ajustar.
 Corrigi a forma de iniciar a aplicação, executando os comandos nas pastas do frontend e do backend. Também configurei o TCP/IP do SQL Server e ajustei as credenciais e a conexão no arquivo .env.
+
 Depois dos ajustes, executei os testes automatizados e conferi pela interface o cadastro manual, a importação do PDF, a listagem e os detalhes dos candidatos. 
+
 Um detalhe importante foi sobre as linguagens pois na faculdade atualmente estou tendo matéria de angular mas decidi escolher o React por ser mais um desafio e aprender mais uma linguagem.
 
 ## Correções e adaptações
