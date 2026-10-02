@@ -1,1 +1,271 @@
-:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#172538;background:#f4f7fb}*{box-sizing:border-box}body{margin:0}.shell{max-width:960px;margin:0 auto;padding:44px 22px}header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0}h2{margin:0 0 8px}p{color:#526274;line-height:1.55}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:#1e60b5}.badge{padding:9px 13px;border-radius:30px;background:#e4efff;color:#23518e;font-size:.8rem;white-space:nowrap}nav{display:flex;gap:8px;margin:34px 0 22px;border-bottom:1px solid #d8e1ec}button{font:inherit;cursor:pointer}nav button{border:0;background:transparent;padding:13px 17px;color:#526274}nav .active{color:#1459ad;border-bottom:3px solid #1459ad;font-weight:700}.panel{background:white;padding:30px;border:1px solid #e2e9f1;border-radius:14px;box-shadow:0 10px 30px #1733510a}.upload{background:#f5f9ff;border:1px dashed #8db4e5;border-radius:10px;padding:19px;margin:24px 0}.upload label{display:block;font-weight:700;margin-bottom:9px}.upload span{font-weight:400;color:#526274}.upload input{max-width:100%}form{display:grid;grid-template-columns:1fr 1fr;gap:19px}.field{display:flex;flex-direction:column;gap:7px;font-size:.9rem;font-weight:650}.field:last-of-type{grid-column:1/-1}input:not([type=file]),textarea{width:100%;border:1px solid #bdcbd9;border-radius:8px;padding:11px 12px;font:inherit;color:#172538;background:white}input:focus,textarea:focus{outline:2px solid #75b0f2}input[aria-invalid=true]{border-color:#b82d36}.primary{grid-column:1/-1;justify-self:start;border:0;border-radius:8px;padding:13px 24px;background:#165db3;color:white;font-weight:700}.primary:disabled{opacity:.6;cursor:wait}.notice{background:#e7f2ff;border-left:4px solid #246bbd;padding:13px 16px;margin-bottom:18px;border-radius:5px}.error{color:#b12531;font-weight:500}.heading{display:flex;justify-content:space-between;align-items:center}.heading button,.back{border:0;background:transparent;color:#165db3;font-weight:700}.cards{display:grid;gap:11px;margin-top:22px}.candidate{text-align:left;border:1px solid #dce6f0;background:#fff;border-radius:9px;padding:16px;display:grid;gap:5px}.candidate:hover{border-color:#478bd1;background:#f8fbff}.candidate span{color:#526274}.candidate em{font-style:normal;color:#165db3;font-weight:700;margin-top:6px}dl div{padding:15px 0;border-bottom:1px solid #e9eef4}dt{color:#627184;font-size:.85rem;font-weight:700}dd{margin:6px 0;white-space:pre-wrap;overflow-wrap:anywhere}.back{padding:0;margin-bottom:22px}@media(max-width:650px){header{display:block}.badge{display:inline-block;margin-top:8px}.shell{padding:26px 15px}.panel{padding:20px}form{grid-template-columns:1fr}}
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #172538;
+  background: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 44px 22px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+  margin: 0 0 8px;
+}
+
+p {
+  color: #526274;
+  line-height: 1.55;
+}
+
+.eyebrow {
+  color: #1e60b5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.badge {
+  padding: 9px 13px;
+  border-radius: 30px;
+  color: #23518e;
+  background: #e4efff;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  margin: 34px 0 22px;
+  border-bottom: 1px solid #d8e1ec;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+nav button {
+  padding: 13px 17px;
+  border: 0;
+  color: #526274;
+  background: transparent;
+}
+
+nav .active {
+  border-bottom: 3px solid #1459ad;
+  color: #1459ad;
+  font-weight: 700;
+}
+
+.panel {
+  padding: 30px;
+  border: 1px solid #e2e9f1;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 30px #1733510a;
+}
+
+.upload {
+  margin: 24px 0;
+  padding: 19px;
+  border: 1px dashed #8db4e5;
+  border-radius: 10px;
+  background: #f5f9ff;
+}
+
+.upload label {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 700;
+}
+
+.upload span {
+  color: #526274;
+  font-weight: 400;
+}
+
+.upload input {
+  max-width: 100%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.field:last-of-type {
+  grid-column: 1 / -1;
+}
+
+input:not([type='file']),
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #bdcbd9;
+  border-radius: 8px;
+  color: #172538;
+  background: white;
+  font: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #75b0f2;
+}
+
+input[aria-invalid='true'] {
+  border-color: #b82d36;
+}
+
+.primary {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  background: #165db3;
+  font-weight: 700;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.notice {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  border-left: 4px solid #246bbd;
+  border-radius: 5px;
+  background: #e7f2ff;
+}
+
+.error {
+  color: #b12531;
+  font-weight: 500;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading button,
+.back {
+  border: 0;
+  color: #165db3;
+  background: transparent;
+  font-weight: 700;
+}
+
+.cards {
+  display: grid;
+  gap: 11px;
+  margin-top: 22px;
+}
+
+.candidate {
+  display: grid;
+  gap: 5px;
+  padding: 16px;
+  border: 1px solid #dce6f0;
+  border-radius: 9px;
+  background: #fff;
+  text-align: left;
+}
+
+.candidate:hover {
+  border-color: #478bd1;
+  background: #f8fbff;
+}
+
+.candidate span {
+  color: #526274;
+}
+
+.candidate em {
+  margin-top: 6px;
+  color: #165db3;
+  font-style: normal;
+  font-weight: 700;
+}
+
+dl div {
+  padding: 15px 0;
+  border-bottom: 1px solid #e9eef4;
+}
+
+dt {
+  color: #627184;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+dd {
+  margin: 6px 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.back {
+  margin-bottom: 22px;
+  padding: 0;
+}
+
+@media (max-width: 650px) {
+  header {
+    display: block;
+  }
+
+  .badge {
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  .shell {
+    padding: 26px 15px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+}
