@@ -46,7 +46,7 @@ Os testes automatizados são testes das funções de validação e identificaç�
 
 ## Tempo e dificuldades
 
-Dediquei aproximadamente 6 horas ao desafio até esta revisão, incluindo instalação, configuração, execução e testes. A preparação final da documentação e a publicação podem aumentar esse tempo.
+Dediquei aproximadamente 6 horas para o pensamento e decisão do desafio até estruturar ele completo, incluindo instalação, configuração, execução e testes. A preparação final da documentação, revisão e publicação 3 dias.
 
 As principais dificuldades foram configurar a conexão com SQL Server, distinguir comandos de terminal de configurações do arquivo .env.
 
